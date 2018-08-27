@@ -1,0 +1,23 @@
+<div class="uk-clearfix news-header">
+  <h2 class="uk-align-left@s uk-margin-remove">Latest News</h2>
+  <form class="uk-search uk-search-default uk-align-right@s uk-margin-remove">
+      <span data-uk-search-icon></span>
+      <input class="uk-search-input article-search-input" data-ng-model="srch" (keyup)="search_articles($event,data_source)" type="search" placeholder="Search News">
+  </form>
+</div>
+<div class=" newsContainer uk-child-width-expand@m" data-uk-grid>
+  <div class="uk-width-1-3@m article-container" data-*ngFor="let article of data_filter| slice:0:3">
+    <div class="uk-card uk-card-default">
+      <div class="uk-card-media-top">
+        <img src="{{article.urlToImage}}" alt="">
+      </div>
+      <div class="card-body-cont">
+      <div class="uk-card-body">
+    <span>{{(article.publishedAt | date:"d MMMM y" )| daySuffix}}</span>
+    <h4 class="uk-card-title uk-text-bold" style="-webkit-box-orient: vertical;">{{article.title}}</h4>
+        <a href="{{article.url}}" class="uk-text-muted" target="_blank">Read More</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

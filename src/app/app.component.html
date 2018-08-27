@@ -1,0 +1,43 @@
+<header>
+    <!-- Language drop down -->
+    <a class="uk-button uk-link-reset">En<i data-uk-icon="icon: chevron-down"></i></a>
+    <div data-uk-dropdown="mode: click" class="uk-margin-remove">
+        <ul class="uk-nav uk-dropdown-nav">
+            <li class="uk-active"><a href="#">English</a></li>
+            <li><a href="#">Arabic</a></li>
+            <li><a href="#">French</a></li>
+        </ul>
+    </div>
+
+    <!-- menu icon -->
+    <a data-uk-icon="icon: menu" class="uk-align-right"></a>
+  </header>
+
+<div class="uk-position-absolute slideshow-arrow-caption">
+    <div class="slide-arrows">
+        <a class="border-circle uk-margin-right" data-uk-icon="icon: triangle-left;ratio: 1.7" [ngClass]="{'disabled':index == 0}" (click)="slideshow.onSlide(-1)"></a>
+        <a class="border-circle" data-uk-icon="icon: triangle-right;ratio: 1.7" [ngClass]="{'disabled':index == imageUrlArray.length-1}" (click)="slideshow.onSlide(1)"></a>
+    </div>
+    <div class="slideshow-caption">
+        <label class="caption-title uk-display-block">{{imageUrlArray[index].title}}</label>
+        <label class="caption-sub-title uk-display-block">{{imageUrlArray[index].subTitle}}</label>
+    </div>
+    <button class="uk-text-uppercase button-flat-primary"><a class="uk-link-reset" href="{{imageUrlArray[index].linkUrl}}" target="_blank">Learn More</a></button>
+</div>
+<slideshow #slideshow [imageUrls]="imageUrlArray" [height]="'750px'" [showArrows]="false" [autoPlayInterval]="5000"
+    [captionColor]="'#000'" [captionBackground]="'transparent'" [backgroundPosition]="'top left'" (onSlideLeft)="onSlide($event)" (onSlideRight)="onSlide($event)"></slideshow>
+<div class="latest-news-container uk-margin-large-top">
+    <app-latest-news></app-latest-news>
+</div>
+
+<footer>
+        <!-- copy write -->
+        <span class="uk-align-left@m uk-margin-remove uk-text-center uk-text-left@m">© 2018 News, All rights reserved.</span>
+        <!--links  -->
+        <ul class="uk-text-center uk-text-right@m uk-align-right@m uk-margin-remove">
+          <li class="uk-link-reset"><a>Privacy Polic</a></li>
+          <li class="uk-link-reset"><a>Copyright</a></li>
+          <li class="uk-link-reset"><a>Terms & Conditions</a></li>
+          <li class="uk-link-reset"><a>Contact Us</a></li>
+        </ul>
+      </footer>
